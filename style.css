@@ -1,0 +1,89 @@
+/* margin et padding pour s'assurer d'avoir un affichage coherent d'un navigateur a l'autre
+On definit aussi une police d'écriture*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Avenir, sans-serif;
+}
+/* créer un menu horizontal sticky
+ajoutez une couleur de fond au menu*/
+nav{
+    width: 100%;
+    margin: 0 auto;
+    background-color: gray;
+    position: sticky;
+    top:0px;
+}
+/* Pour enlever les puces devant nos éléments de la nav*/
+nav ul{
+    list-style-type: none;
+}
+/* pour espacer nos onglets du menu une largeur de 100% divisé par le nombre d'éléments
+pour centrer le contenu textuel de chacun de nos éléments*/
+nav ul li{
+    float:left;
+    width: 25%;
+    text-align: center;
+}
+/* pour aligner mes elements sans espace*/
+nav ul::after{
+    content: "";
+    display:table;
+    clear: both;
+}
+/* pour que les elements aient toujours la même hauteur*/
+nav a{
+    display: block;
+    text-decoration: none;
+    color:rgb(214, 146, 19);
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover{
+    color:blue;
+    border-bottom: 2px solid gold;
+}
+/* pour cacher les sous menus et ne les afficher que lorsqu’un utilisateur passe sa souris par-dessus l’onglet de menu correspondant.
+pour ajouter une couleur de fond aux sous menus*/
+.sous{
+    display: none;
+    box-shadow: 0px 1px 2px #CCC;
+    background-color: white;
+}
+nav > ul li:hover .sous{
+    display: block;
+}
+/* pour que nos sous-menus s’affichent les uns en dessous des autres
+qu'ils occupent tout l’espace disponible dans leur conteneur 
+et que le texte soit aligné à gauche.*/
+.sous li{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+/* pour supprimer la bordure basse héritée du menu principal, 
+ajouter une marge interne et une couleur de fond lorsqu’on passe la souris sur un élément.*/
+.sous a{
+padding: 10px;
+border-bottom: none;
+}
+.sous a:hover{
+    border-bottom: none;
+    background-color: RGBa(200,200,200,0.1);
+}
+/* Pour que les sous-menus ne passent pas derrière le contenu qui suit le menu*/
+.sous{
+    display: none;
+    box-shadow: 0px 1px 2px #CSS;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+/* pour replacer les sous-menus correctement sous leur onglet correspondant et pour qu’ils fassent bien la même taille*/
+nav ul li{
+    float: left;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
